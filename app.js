@@ -231,6 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ctx.stroke();
         }
 
+
         if(eraserMode) {
             //Follow the cursur and clear rect(make a circle) whereever you're supposed to draw
             //     points.push({x: e.clientX - clientRect.left, y: e.clientY - clientRect.top});
