@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css"/>
+    <script src="app.js"></script>
+    <title>Title</title>
+</head>
+
+<body>
+    <div id ='colorThicknessContainer'>
+        <span id='accordionContainer'>
+            <button class='accordion'><i class='fa fa-paint-brush fa-2x' aria-hidden='true'></i></button>
+            <div class='panel show' id='spacingColor'>
+                <div class='colorRightMargin colorContainer'>
+                    <div class="colorContainer">
+                        <div class='hoverColorButton'></div>
+                        <div id='blueButton' class='buttonColor'></div>
+                        <div class='hoverColorButton'></div>
+                        <div id='redButton' class='buttonColor'></div>
+                        <div class='hoverColorButton'></div>
+                        <div id='orangeButton' class='buttonColor'></div>
+                    </div>
+                </div>
+
+                <div class='colorRightMargin'>
+                    <div id="colorContainer">
+                        <div class='hoverColorButton'></div>
+                        <div id='purpleButton' class='buttonColor'></div>
+                        <div class='hoverColorButton'></div>
+                        <div id='yellowButton' class='buttonColor'></div>
+                        <div class='hoverColorButton'></div>
+                        <div id='blackButton' class='buttonColor'></div>
+                    </div>
+                </div>
+            </div>
+
+            <button class='accordion'><div id='thicknessSection' class='buttonThickness'></div></button>
+            <div class='panel show'>
+                <div id='thicknessSpacing'>
+                    <div id="thicknessContainer">
+                        <div id="hoverThickness5Button"></div>
+                        <div id='thickness5' class='buttonThickness'></div>
+                        <div id="hoverThickness10Button"></div>
+                        <div id='thickness10' class='buttonThickness'></div>
+                        <div id="hoverThickness25Button"></div>
+                        <div id='thickness25' class='buttonThickness'></div>
+                        <div id="hoverThickness50Button"></div>
+                        <div id='thickness50' class='buttonThickness'></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class='accordion'><i id = 'typeSection' class='fa fa-pencil fa-2x' aria-hidden='true'></i></button>
+            <div class='panel show'>
+                <div id="eraseClearContainer">
+                    <div id="eraseSpacing">
+                        <div id="hoverEraseButton"></div>
+                        <div><i id = "penButton" class="fa fa-pencil fa-3x" aria-hidden="true"></i></div>
+                    </div>
+                    <div id="clearSpacing">
+                        <div id="hoverClearButton"></div>
+                        <i id="clearButton" class="fa fa-trash fa-3x" aria-hidden="true"></i>
+                    </div>
+                    <div id="penSpacing">
+                        <div id="hoverPenButton"></div>
+                        <div><i id="eraserButton" class="fa fa-eraser fa-3x" aria-hidden="true"></i></i></div>
+                    </div>
+                </div>
+            </div>
+        </span>
+
+        <canvas id='canvas' width='1041px' height='589px'></canvas>
+    </div>
+
+
+</body>
+
+</html>
+

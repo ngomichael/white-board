@@ -1,0 +1,402 @@
+html {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+#canvas {
+    border: solid black 1px;
+    position: absolute;
+    margin-left: 18.5%;
+}
+
+#canvas:hover {
+    cursor: crosshair;
+}
+
+#colorThicknessContainer {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#accordionContainer {
+    margin-right: 50px;
+}
+
+.colorRightMargin {
+    margin-right: 20px;
+}
+
+
+.spacingColor {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonThickness {
+    background-color: #4d4d4d;
+    border-radius: 30px;
+    display: inline-flex;
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    z-index: 10;
+}
+
+
+
+#thicknessContainer {
+    position: relative;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 110%
+}
+
+/*#thicknessDisplay {*/
+    /*border-radius: 30px;*/
+    /*display: inline-flex;*/
+    /*background-color: white;*/
+    /*position: relative;*/
+    /*height: 30px;*/
+    /*width: 30px;*/
+/*}*/
+
+#hoverThickness50Button {
+    position: absolute;
+    margin-left: 151px;
+    height: 60px;
+    width: 60px;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    z-index: 1;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+#hoverThickness25Button {
+    position: absolute;
+    margin-left: 94px;
+    height: 60px;
+    width: 40px;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    z-index: 1;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+#hoverThickness10Button {
+    position: absolute;
+    margin-left: 42px;
+    height: 60px;
+    width: 30px;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    z-index: 1;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+#hoverThickness5Button {
+    position: absolute;
+    height: 60px;
+    width: 20px;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    z-index: 1;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+#thicknessSection {
+    position: relative;
+    top: 50%;
+    transform: translateY(-5%);
+    justify-content: center;
+    position: relative;
+    height: 30px;
+    width: 30px;
+    transition: 0.3s ease-in-out;
+}
+
+#thickness5 {
+    position: relative;
+    margin-left: 5px;
+    height: 10px;
+    width: 10px;
+}
+
+#thickness5:hover {
+    cursor: pointer;
+}
+
+#thickness10 {
+    position: relative;
+    height: 20px;
+    width: 20px;
+}
+
+#thickness10:hover {
+    cursor: pointer;
+}
+
+#thickness25 {
+    position: relative;
+    height: 30px;
+    width: 30px;
+}
+
+#thickness25:hover {
+    cursor: pointer;
+}
+
+#thickness50 {
+    position: relative;
+    height: 40px;
+    width: 40px;
+}
+
+#thickness50:hover {
+    cursor: pointer;
+}
+
+#thicknessSpacing {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 110%
+}
+
+#colorContainer {
+    position: relative;
+}
+
+#eraseClearContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+#typeSection {
+    color: white;
+}
+
+#penSpacing {
+    display: flex;
+}
+
+#penButton {
+    position: relative;
+    cursor: pointer;
+    color: white;
+    margin-left: -4px;
+    margin-top: 23px;
+    margin-bottom: 20px;
+    z-index: 100;
+    display: inline-block;
+
+}
+
+#hoverPenButton {
+    position: absolute;
+    margin-top: 15px;
+    margin-left: -125px;
+    height: 65px;
+    width: 65px;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    z-index: 1;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+#clearSpacing {
+    display: flex;
+}
+
+#clearButton {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding-left: 36px;
+    margin-top: 23px;
+    z-index: 100;
+}
+
+#hoverClearButton {
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 23px;
+    margin-top: 15px;
+    height: 65px;
+    width: 65px;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    z-index: 1;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+#eraseSpacing {
+    display: flex;
+}
+
+#eraserButton {
+    position: relative;
+    cursor: pointer;
+    color: white;
+    margin-top: 22px;
+    margin-left: 40px;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#hoverEraseButton {
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 142px;
+    height: 65px;
+    width: 65px;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    z-index: 1;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.hoverColorButton {
+    position: absolute;
+    margin-left: 15px;
+    margin-top: -5px;
+    height: 52px;
+    width: 52px;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    z-index: 1;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+
+}
+
+.buttonColor {
+    width: 42px;
+    height: 42px;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    z-index: 10;
+}
+
+.buttonColor:hover {
+    cursor: pointer;
+}
+
+#blueButton {
+    position: relative;
+    background-color: blue;
+    border-color: blue;
+    box-shadow: none;
+}
+
+#yellowButton {
+    position: relative;
+    background-color: yellow;
+    border-color: yellow;
+    box-shadow: none;
+}
+
+#redButton {
+    position: relative;
+    background-color: red;
+    border-color: red;
+    box-shadow: none;
+}
+
+#blackButton {
+    position: relative;
+    background-color: black;
+    border-color: black;
+    box-shadow: none;
+    transition: all 0.1s ease-out 0.2s;
+}
+
+#orangeButton {
+    position: relative;
+    background-color: orange;
+    border-color: orange;
+    box-shadow: none;
+}
+
+#purpleButton {
+    position: relative;
+    background-color: purple;
+    border-color: purple;
+    box-shadow: none;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+button.accordion {
+    background-color: #4d4d4d;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 71px;
+    /*text-align: center;*/
+    font-size: large;
+    border: none;
+    outline: none;
+    transition: 0.5s;
+}
+
+/* Add a background color to the button if it is clicked on
+(add the .active class with JS), and when you move the mouse over it (hover) */
+/*button.accordion:hover {*/
+    /*background-color: #4d4d4d;*/
+/*}*/
+
+/* Style the accordion panel.*/
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* The "show" class is added to the accordion panel when the user clicks on one of the buttons.
+This will show the panel content */
+div.panel.show {
+    opacity: 1;
+    max-height: 500px;
+    /*width: 90%;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333333;
+}
+
+/*button.accordion:after {*/
+    /*!*content: '\02795'; !* Unicode character for "plus" sign (+) *!*!*/
+    /*font-size: 13px;*/
+    /*!*color: white;*!*/
+    /*float: right;*/
+    /*margin-left: 5px;*/
+/*}*/
+
+button.accordion.active:after {
+    /*content: "\2796"; !* Unicode character for "minus" sign (-) *!*/
+}
