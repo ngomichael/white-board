@@ -34,14 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
     var thicknessSection = document.getElementById('thicknessSection');
 
     var mode;
-    var PEN_MODE = penButton;
-    var ERASER_MODE = eraserButton;
+    var PEN_MODE = 'pen';
+    var ERASER_MODE = 'eraser';
+    var CLEAR_MODE = 'clear';
     var isPressDown = false;
 
-    //----------------------------Eraser Button
+    //----------------------------------------------------------Eraser Button
     eraserButton.addEventListener('click', function(e) {
-        // eraserMode = true;
-        // penMode = false;
         mode = ERASER_MODE;
         isPressDown = false;
         hoverEraseButton.style.opacity = '1';
@@ -56,11 +55,9 @@ document.addEventListener('DOMContentLoaded', function() {
         hoverEraseButton.style.opacity = '0';
     });
 
-    //---------------------------------Clear Button
+    //------------------------------------------------------------Clear Button
     clearButton.addEventListener('click', function (e) {
-        // penMode = false;
-        // eraserMode = false;
-        mode = null;
+        mode = CLEAR_MODE;
         isPressDown = false;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         typeSection.className = 'fa fa-trash fa-2x';
@@ -74,10 +71,8 @@ document.addEventListener('DOMContentLoaded', function() {
         hoverClearButton.style.opacity = '0';
     });
 
-    //-------------------------------Pen Button
+    //---------------------------------------------------------------Pen Button
     penButton.addEventListener('click', function (e) {
-        // penMode = true;
-        // eraserMode = false;
         mode = PEN_MODE;
         isPressDown = true;
         typeSection.className = 'fa fa-pencil fa-2x';
@@ -91,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         hoverPenButton.style.opacity = '0';
     });
 
-    //------------------------------Changing opacity when hovered
+    //--------------------------------------------Changing opacity when hovered
     smallThickness.addEventListener('mouseover', function(e) {
         smallThicknessSquareBackground.style.opacity = '1';
     });
@@ -108,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         xLargeThicknessSquareBackground.style.opacity = '1';
     });
 
-    //------------------------------Changing opacity when mouse leaves
+    //--------------------------------------Changing opacity when mouse leaves
     smallThickness.addEventListener('mouseout', function(e) {
         smallThicknessSquareBackground.style.opacity = '0';
     });
@@ -122,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
         xLargeThicknessSquareBackground.style.opacity = '0';
     });
 
-    //-----------------------------Changing thickness
+    //------------------------------------------------------Changing thickness
     smallThickness.addEventListener('click', function (e) {
         ctx.lineWidth = 5;
         thicknessSection.style.height = '10px';
@@ -162,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, false);
     }
 
-    //-------------------------------Changing drawing colors
+    //---------------------------------------------------Changing drawing colors
     blueButton.addEventListener('click', function (e) {
         ctx.strokeStyle = 'blue';
         for(let i = 0; i < paintbrush.length; i++) {
@@ -205,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    //------------------------------------------------Drawing
+    //-----------------------------------------------------------------Drawing
     canvas.addEventListener('mousedown', function(e) {
         isPressDown = true;
         console.log('mousedown');
@@ -216,7 +211,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if(mode == ERASER_MODE) {
             isPressDown = false;
         }
-        // if (!isPressDown) return;
+        if (mode == CLEAR_MODE) {
+            return;
+        }
         clientRect = e.target.getBoundingClientRect();
         console.log('mousemove');
 
@@ -233,17 +230,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
         if(mode == ERASER_MODE) {
-            //Follow the cursur and clear rect(make a circle) whereever you're supposed to draw
-            //     points.push({x: e.clientX - clientRect.left, y: e.clientY - clientRect.top});
             ctx.beginPath();
             ctx.moveTo(points[0].x, points[0].y);
             for(var i = 1; i < points.length; i++ ) {
                 ctx.lineTo(points[i].x, points[i].y);
             }
             ctx.clearRect(e.clientX - 251, e.clientY - 15, 30, 30);
-            //     ctx.globalCompositeOperation = 'destination-out';
-            //     ctx.arc(e.clientX,e.clientY,5,0,Math.PI*2,false);
-            //     ctx.fill();
         }
     });
 
