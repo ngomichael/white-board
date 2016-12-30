@@ -188,6 +188,10 @@ body {
     transition: 0.7s ease-in-out;
 }
 
+#paintbrushIcon {
+
+}
+
 #penSpacing {
     display: flex;
 }

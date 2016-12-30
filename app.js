@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var ctx = canvas.getContext('2d');
     var clientRect;
     var points = [ ];
-    ctx.lineWidth = 10;
+    ctx.lineWidth = 25;
     ctx.strokeStyle = 'black';
     ctx.lineJoin = ctx.lineCap = 'round';
 
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var clearButton = document.getElementById('clearButton');
     var eraserButton = document.getElementById('eraserButton');
     var penButton = document.getElementById('penButton');
-    var paintbrush = document.getElementsByClassName('fa-paint-brush');
+    var paintbrushIcon = document.getElementById('paintbrushIcon');
     var typeSection = document.getElementById('typeSection');
     var thicknessSection = document.getElementById('thicknessSection');
 
@@ -87,62 +87,46 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     //--------------------------------------------Changing opacity when hovered
-    smallThickness.addEventListener('mouseover', function(e) {
-        smallThicknessSquareBackground.style.opacity = '1';
-    });
 
-    mediumThickness.addEventListener('mouseover', function(e) {
-        mediumThicknessSquareBackground.style.opacity = '1';
-    });
+    function addMouseOverThickness(thickness, background) {
+        thickness.addEventListener('mouseover', function(e) {
+            background.style.opacity = '1';
+        })
+    }
 
-    largeThickness.addEventListener('mouseover', function(e) {
-        largeThicknessSquareBackground.style.opacity = '1';
-    });
-
-    xLargeThickness.addEventListener('mouseover', function(e) {
-        xLargeThicknessSquareBackground.style.opacity = '1';
-    });
+    addMouseOverThickness(smallThickness, smallThicknessSquareBackground);
+    addMouseOverThickness(mediumThickness, mediumThicknessSquareBackground);
+    addMouseOverThickness(largeThickness, largeThicknessSquareBackground);
+    addMouseOverThickness(xLargeThickness, xLargeThicknessSquareBackground);
 
     //--------------------------------------Changing opacity when mouse leaves
-    smallThickness.addEventListener('mouseout', function(e) {
-        smallThicknessSquareBackground.style.opacity = '0';
-    });
-    mediumThickness.addEventListener('mouseout', function(e) {
-        mediumThicknessSquareBackground.style.opacity = '0';
-    });
-    largeThickness.addEventListener('mouseout', function(e) {
-        largeThicknessSquareBackground.style.opacity = '0';
-    });
-    xLargeThickness.addEventListener('mouseout', function(e) {
-        xLargeThicknessSquareBackground.style.opacity = '0';
-    });
+
+    function addMouseOutThickness(thickness, background) {
+        thickness.addEventListener('mouseout', function(e) {
+            background.style.opacity = '0';
+        })
+    }
+
+    addMouseOutThickness(smallThickness, smallThicknessSquareBackground);
+    addMouseOutThickness(mediumThickness, mediumThicknessSquareBackground);
+    addMouseOutThickness(largeThickness, largeThicknessSquareBackground);
+    addMouseOutThickness(xLargeThickness, xLargeThicknessSquareBackground);
+
 
     //------------------------------------------------------Changing thickness
-    smallThickness.addEventListener('click', function (e) {
-        ctx.lineWidth = 5;
-        thicknessSection.style.height = '10px';
-        thicknessSection.style.width = '10px';
-    });
 
-    mediumThickness.addEventListener('click', function (e) {
-        ctx.lineWidth = 10;
-        thicknessSection.style.height = '20px';
-        thicknessSection.style.width = '20px';
-    });
+    function changeDrawingThickness(thicknessIcon, thickness, section, height, width) {
+        thicknessIcon.addEventListener('click', function(e) {
+            ctx.lineWidth = thickness;
+            section.style.height = height;
+            section.style.width = width;
+        })
+    }
 
-    largeThickness.addEventListener('click', function (e) {
-        ctx.lineWidth =  25;
-        thicknessSection.style.height = '30px';
-        thicknessSection.style.width = '30px';
-    });
-
-    xLargeThickness.addEventListener('click', function (e) {
-        ctx.lineWidth = 40;
-        thicknessSection.style.height = '40px';
-        thicknessSection.style.width = '40px';
-    });
-
-
+    changeDrawingThickness(smallThickness, 5, thicknessSection, '10px', '10px');
+    changeDrawingThickness(mediumThickness, 10, thicknessSection, '20px', '20px');
+    changeDrawingThickness(largeThickness, 25, thicknessSection, '30px', '30px');
+    changeDrawingThickness(xLargeThickness, 40, thicknessSection, '40px', '40px');
 
     //-----------------------------Changing opacity when hovered over elmement
     for (let i = 0; i < buttonColor.length; i++) {
@@ -158,47 +142,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     //---------------------------------------------------Changing drawing colors
-    blueButton.addEventListener('click', function (e) {
-        ctx.strokeStyle = 'blue';
-        for(let i = 0; i < paintbrush.length; i++) {
-            paintbrush[i].style.color = "blue";
-        }
-    });
+    function changeColorandIconColor(button, color, icon) {
+        button.addEventListener('click', function(e) {
+            ctx.strokeStyle = color;
+            icon.style.color = color;
+            console.log(icon);
+        })
+    }
 
-    redButton.addEventListener('click', function (e) {
-        ctx.strokeStyle = 'red';
-        for(let i = 0; i < paintbrush.length; i++) {
-            paintbrush[i].style.color = "red";
-        }
-    });
-
-    blackButton.addEventListener('click', function (e) {
-        ctx.strokeStyle = 'black';
-        for(let i = 0; i < paintbrush.length; i++) {
-            paintbrush[i].style.color = "black";
-        }
-    });
-
-    purpleButton.addEventListener('click', function (e) {
-        ctx.strokeStyle = 'purple';
-        for(let i = 0; i < paintbrush.length; i++) {
-            paintbrush[i].style.color = "purple";
-        }
-    });
-
-    yellowButton.addEventListener('click', function (e) {
-        ctx.strokeStyle = 'yellow';
-        for(let i = 0; i < paintbrush.length; i++) {
-            paintbrush[i].style.color = "yellow";
-        }
-    });
-
-    orangeButton.addEventListener('click', function (e) {
-        ctx.strokeStyle = 'orange';
-        for(let i = 0; i < paintbrush.length; i++) {
-            paintbrush[i].style.color = "orange";
-        }
-    });
+    changeColorandIconColor(blueButton, 'blue', paintbrushIcon);
+    changeColorandIconColor(redButton, 'red', paintbrushIcon);
+    changeColorandIconColor(blackButton, 'black', paintbrushIcon);
+    changeColorandIconColor(purpleButton, 'purple', paintbrushIcon);
+    changeColorandIconColor(yellowButton, 'yellow', paintbrushIcon);
+    changeColorandIconColor(orangeButton, 'orange', paintbrushIcon);
 
     //-----------------------------------------------------------------Drawing
     canvas.addEventListener('mousedown', function(e) {
@@ -244,9 +201,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('mouseup');
         points.length = 0;
     });
-
-
-
 
     //Accordion
     /* Toggle between adding and removing the "active" and "show" classes when the user clicks on one of the "Section" buttons.
