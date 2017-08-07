@@ -188,6 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if(mode == ERASER_MODE) {
             ctx.beginPath();
+            points.push({x: e.clientX - clientRect.left, y: e.clientY - clientRect.top});
             ctx.moveTo(points[0].x, points[0].y);
             for(var i = 1; i < points.length; i++ ) {
                 ctx.lineTo(points[i].x, points[i].y);
@@ -202,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
         points.length = 0;
     });
 
-    //Accordion
+    //------------------------------------------------------------------Accordion
     /* Toggle between adding and removing the "active" and "show" classes when the user clicks on one of the "Section" buttons.
      The "active" class is used to add a background color to the current button when its belonging panel is open.
      The "show" class is used to open the specific accordion panel */
