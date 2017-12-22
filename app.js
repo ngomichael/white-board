@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ctx.strokeStyle = 'black';
     ctx.lineJoin = ctx.lineCap = 'round';
 
+    //Get elements by class and id
     var buttonColor = document.getElementsByClassName('buttonColor');
     var blueButton = document.getElementById('blueButton');
     var redButton = document.getElementById('redButton');
@@ -146,7 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function(e) {
             ctx.strokeStyle = color;
             icon.style.color = color;
-            console.log(icon);
         })
     }
 
@@ -160,7 +160,6 @@ document.addEventListener('DOMContentLoaded', function() {
     //-----------------------------------------------------------------Drawing
     canvas.addEventListener('mousedown', function(e) {
         isPressDown = true;
-        console.log('mousedown');
         points.push({x: e.clientX - clientRect.left, y: e.clientY - clientRect.top});
     });
 
@@ -172,7 +171,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         clientRect = e.target.getBoundingClientRect();
-        console.log('mousemove');
 
         if(isPressDown) {
             ctx.globalCompositeOperation = 'source-over';
@@ -199,7 +197,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     canvas.addEventListener('mouseup', function(e) {
         isPressDown = false;
-        console.log('mouseup');
         points.length = 0;
     });
 
